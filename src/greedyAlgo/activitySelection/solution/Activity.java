@@ -1,4 +1,4 @@
-package greedyAlgo.activitySelection;
+package greedyAlgo.activitySelection.solution;
 
 public class Activity {
 	private String name;

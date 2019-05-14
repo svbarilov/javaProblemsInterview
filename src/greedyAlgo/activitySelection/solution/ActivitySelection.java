@@ -1,4 +1,4 @@
-package greedyAlgo.activitySelection;
+package greedyAlgo.activitySelection.solution;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

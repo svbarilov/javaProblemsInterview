@@ -1,4 +1,4 @@
-package numberFactors;
+package dynamicProg.numberFactors;
 
 public class Number_Factors_TopDown {
 

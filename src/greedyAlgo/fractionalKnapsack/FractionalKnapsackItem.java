@@ -57,7 +57,7 @@ public class FractionalKnapsackItem {
 	
 	@Override
 	public String toString() {
-		return "Item index=" + index + ", value=" + value + ", weight=" + weight + ", ratio=" + ratio + "]";
+		return "Item index=" + index + ", value=" + value + ", itemWeight=" + weight + ", ratio=" + ratio + "]";
 	}//end of method
 
 }//end of class

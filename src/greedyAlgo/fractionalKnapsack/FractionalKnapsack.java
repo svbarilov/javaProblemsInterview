@@ -6,7 +6,7 @@ public class FractionalKnapsack {
 
 	
 	static void knapSack(ArrayList<FractionalKnapsackItem> items, int capacity) {
-		// Sort items by descending ratio of value/ weight
+		// Sort items by descending ratio of value/ itemWeight
 		//Implement Comparator interface and specify which variable('Ratio') of user defined class should the 'compare' method work on.
 		//This needs to be done because this will be required in Sort method  
 		Comparator<FractionalKnapsackItem> comparator = new Comparator<FractionalKnapsackItem>() {
@@ -36,7 +36,7 @@ public class FractionalKnapsack {
 				//else consume fractionally
 				int usedWeight = capacity - usedCapacity;
 				double value = item.getRatio()*usedWeight;
-				System.out.println("Taken: "+"item index = " + item.getIndex() + ",obtained value = " + value + ",used weight = " + usedWeight + ", ratio = " + item.getRatio()
+				System.out.println("Taken: "+"item index = " + item.getIndex() + ",obtained value = " + value + ",used itemWeight = " + usedWeight + ", ratio = " + item.getRatio()
 						+ "]");
 				usedCapacity+=usedWeight;
 				totalValue+=value;

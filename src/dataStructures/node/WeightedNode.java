@@ -1,20 +1,20 @@
-//package node;
+//package dataStructures.node;
 //
 //import java.util.*;
 //
 //import mst.DisjointSet;
 //
-//public class WeightedNode2 implements Comparable<WeightedNode2> {
+//public class WeightedNode implements Comparable<WeightedNode> {
 //	public String name;
 //
-//	private ArrayList<WeightedNode2> neighbors = new ArrayList<WeightedNode2>();
-//	private HashMap<WeightedNode2, Integer> weightMap = new HashMap<>();
+//	private ArrayList<WeightedNode> neighbors = new ArrayList<WeightedNode>();
+//	private HashMap<WeightedNode, Integer> weightMap = new HashMap<>();
 //	private boolean isVisited = false;
-//	private WeightedNode2 parent;
+//	private WeightedNode parent;
 //	private int distance;
-//	private DisjointSet set;
+//	private DisjointSet set; //used in DisjointSet Algorithm
 //
-//	public WeightedNode2(String name) {
+//	public WeightedNode(String name) {
 //		this.name = name;
 //		distance = Integer.MAX_VALUE;
 //	}
@@ -23,7 +23,7 @@
 //		return set;
 //	}
 //
-//	public void setSet(DisjointSet set) {
+//	public void setSet(DisjointSet set) { //used in DisjointSet Algorithm
 //		this.set = set;
 //	}
 //
@@ -35,19 +35,19 @@
 //		this.name = name;
 //	}
 //
-//	public ArrayList<WeightedNode2> getNeighbors() {
+//	public ArrayList<WeightedNode> getNeighbors() {
 //		return neighbors;
 //	}
 //
-//	public void setNeighbors(ArrayList<WeightedNode2> neighbors) {
+//	public void setNeighbors(ArrayList<WeightedNode> neighbors) {
 //		this.neighbors = neighbors;
 //	}
 //
-//	public HashMap<WeightedNode2, Integer> getWeightMap() {
+//	public HashMap<WeightedNode, Integer> getWeightMap() {
 //		return weightMap;
 //	}
 //
-//	public void setWeightMap(HashMap<WeightedNode2, Integer> weightMap) {
+//	public void setWeightMap(HashMap<WeightedNode, Integer> weightMap) {
 //		this.weightMap = weightMap;
 //	}
 //
@@ -59,11 +59,11 @@
 //		this.isVisited = isVisited;
 //	}
 //
-//	public WeightedNode2 getParent() {
+//	public WeightedNode getParent() {
 //		return parent;
 //	}
 //
-//	public void setParent(WeightedNode2 parent) {
+//	public void setParent(WeightedNode parent) {
 //		this.parent = parent;
 //	}
 //
@@ -81,7 +81,7 @@
 //	}
 //
 //	@Override
-//	public int compareTo(WeightedNode2 o) {
+//	public int compareTo(WeightedNode o) {
 //		return this.distance - o.distance;
 //	}
 //

@@ -1,4 +1,4 @@
-package node;
+package dataStructures.node;
 
 public  class SingleNode {
 	private int value;

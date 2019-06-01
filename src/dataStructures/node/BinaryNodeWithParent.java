@@ -1,4 +1,4 @@
-package node;
+package dataStructures.node;
 
 public class BinaryNodeWithParent {
 	private int value;

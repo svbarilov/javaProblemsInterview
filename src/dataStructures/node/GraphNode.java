@@ -1,4 +1,4 @@
-package node;
+package dataStructures.node;
 
 import java.util.*;
 

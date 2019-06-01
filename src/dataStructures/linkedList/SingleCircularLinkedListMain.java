@@ -1,4 +1,4 @@
-package linkedList;
+package dataStructures.linkedList;
 
 public class SingleCircularLinkedListMain {
 

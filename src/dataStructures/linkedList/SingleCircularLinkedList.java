@@ -1,18 +1,18 @@
-package linkedList;
+package dataStructures.linkedList;
 
 import node.SingleNode;
 
-public class SingleLinkedList {
+public class SingleCircularLinkedList {
 	private SingleNode head;
 	private SingleNode tail;
 	private int size;// denotes size of list
+
 	
-	
-	public SingleNode createSingleLinkedList(int nodeValue) {
+	SingleNode createSingleLinkedList(int nodeValue) {
 		head = new SingleNode();
 		SingleNode node = new SingleNode();
 		node.setValue(nodeValue);
-		node.setNext(null);
+		node.setNext(node);
 		head = node;
 		tail = node;
 		size = 1;// size =1
@@ -42,93 +42,120 @@ public class SingleLinkedList {
 	public void setSize(int size) {
 		this.size = size;
 	}
-	
-	
-	public void insertInLinkedList(int nodeValue, int location) {
+
+	void insertInLinkedList(int nodeValue, int location) {
 		SingleNode node = new SingleNode();
 		node.setValue(nodeValue);
-		if (!existsLinkedList()) { // Linked List does not exists
+		System.out.println("Inserting new node at location: " + location);
+		if (!existsLinkedList()) {
 			System.out.println("The linked list does not exist!!");
-			return; 
+			return; // Linked List does not exists
 		} else if (location == 0) {// insert at first position
 			node.setNext(head);
 			head = node;
+			tail.setNext(node); // update tail
 		} else if (location >= size) {// insert at last position
-			node.setNext(null);
 			tail.setNext(node);
-			tail = node; 
-		} else {// insert at specified location
+			tail = node; // to keep track of last node
+			tail.setNext(head); // update tail to circularly point head
+		} else // insert at specified location
+		{
 			SingleNode tempNode = head;
 			int index = 0;
 			while (index < location - 1) {// loop till we reach specified node
 				tempNode = tempNode.getNext();
 				index++;
-			}//tempNode currently references to node after which we should insert new node
-			SingleNode nextNode = tempNode.getNext(); //this is the immediate next node after new node
-			tempNode.setNext(node);//update reference of tempNode to reference to new node
-			node.setNext(nextNode);//update newly added nodes' next.
+			}// insert new node after tempNode
+			node.setNext(tempNode.getNext());
+			tempNode.setNext(node);			
 		}
-		setSize(getSize()+1);
+		size++;
 	}
 
-	
 	public boolean existsLinkedList() {
 		// if head is not null retrun true otherwise return false
 		return head != null;
 	}
 	
-	
-	//Traverses Linked List
+
+	// Traverse Linked List
 	void traverseLinkedList() {
 		if (existsLinkedList()) {
 			SingleNode tempNode = head;
-			for (int i = 0; i < getSize(); i++) {
+			for (int i = 0; i < size; i++) {
+
 				System.out.print(tempNode.getValue());
-				if (i != getSize() - 1) {
+				if (i != size - 1) {
 					System.out.print(" -> ");
 				}
 				tempNode = tempNode.getNext();
 			}
+			System.out.println("\n");
 		}else {
-			System.out.println("Linked List does not exists !");
+			System.out.println("\nLinked List does not exists !");
 		}
-		System.out.println("\n");
+	}
+	
+	
+	// Traverse Linked List
+	void printHeadUsingTail() {
+		if (existsLinkedList()) {
+			System.out.println("Printing Tail...");
+			System.out.println(tail.getValue());
+			
+			System.out.println("Printing Head using Head reference...");
+			System.out.println(head.getValue());
+			
+			System.out.println("Printing Head using Tail reference...");
+			System.out.println(tail.getNext().getValue());
+			
+		}else{
+			System.out.println("Linked List does not exists");
+		}
 	}
 
 	
-	//Deletes entire Linked List
+	//Delete linked list
 	void deleteLinkedList() {
 		System.out.println("\n\nDeleting Linked List...");
 		head = null;
-		tail = null;
-		System.out.println("Linked List deleted successfully !");
+		if(tail == null) {
+			System.out.println("Linked List is already deleted, nothing to delete !");
+			return;
+		}else {
+			tail.setNext(null);
+			tail = null;
+			System.out.println("Linked List deleted successfully !");
+		}
 	}
-
 	
-	//Searches a node with given value
+	
+	//Search given value in Linked List
 	boolean searchNode(int nodeValue) {
 		if (existsLinkedList()) {
 			SingleNode tempNode = head;
-			for (int i = 0; i < getSize(); i++) {
+			for (int i = 0; i < size; i++) {
+
+				// System.out.print(tempNode.value);
 				if (tempNode.getValue() == nodeValue) {
-					System.out.print("Found the node at location: "+i+"\n");
+					System.out.print("Found the node at location: "+i);
 					return true;
 				}
 				tempNode = tempNode.getNext();
 			}
 		}
-		System.out.print("Node not found!! \n");
+		System.out.print("Node not found!! ");
+
 		return false;
 	}
-	
-	
-	//Deletes a node having a given value
+
 	public void deletionOfNode(int location) {
 		if (!existsLinkedList()) {
 			System.out.println("The linked list does not exist!!");// Linked List does not exists
 			return;
 		} else if (location == 0) { // we want to delete first element
 			head = head.getNext();
+			tail.setNext(head);
 			setSize(getSize()-1);
 			if(getSize() == 0) { // if there are no more nodes in this list
 				tail = null;
@@ -143,7 +170,7 @@ public class SingleLinkedList {
 				setSize(getSize()-1);
 				return;
 			}
-			tempNode.setNext(null); 
+			tempNode.setNext(head); 
 			tail= tempNode;
 			setSize(getSize()-1);
 			
@@ -157,7 +184,5 @@ public class SingleLinkedList {
 		}//end of else	
 		
 	}//end of method
-	
-}// end of class
 
-
+}//end of class

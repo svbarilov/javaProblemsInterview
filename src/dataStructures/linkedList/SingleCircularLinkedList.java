@@ -1,6 +1,6 @@
 package dataStructures.linkedList;
 
-import node.SingleNode;
+import dataStructures.node.SingleNode;
 
 public class SingleCircularLinkedList {
 	private SingleNode head;

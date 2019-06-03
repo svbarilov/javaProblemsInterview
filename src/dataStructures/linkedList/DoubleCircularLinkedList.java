@@ -1,6 +1,6 @@
 package linkedList;
 
-import node.DoubleNode;
+import dataStructures.node.DoubleNode;
 
 public class DoubleCircularLinkedList {
 	private DoubleNode head;

@@ -1,6 +1,6 @@
 package dataStructures.linkedList;
 
-import node.DoubleNode;
+import dataStructures.node.DoubleNode;
 
 public class DoubleLinkedList {
 	DoubleNode head;

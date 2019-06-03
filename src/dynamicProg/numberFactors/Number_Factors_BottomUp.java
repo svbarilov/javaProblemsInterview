@@ -1,4 +1,4 @@
-package dynamicProgramming;
+package dynamicProg.numberFactors;
 
 public class Number_Factors_BottomUp {
 
